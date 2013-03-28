@@ -1,6 +1,6 @@
 name: iFly
 main: com.elysiummc.iFly.iFly
-version: 0.1
+version: 0.2
 commands:
    ifly:
       description: Take to the skies!

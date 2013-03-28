@@ -10,7 +10,6 @@ import org.bukkit.ChatColor;
 
 
 public class iFly extends JavaPlugin {
-
 	
 	public int task1;
 
@@ -19,18 +18,20 @@ public class iFly extends JavaPlugin {
 		int explvl = player.getLevel();
 		if(cmd.getName().equalsIgnoreCase("ifly"))
 			if (explvl >= 1){
-			Bukkit.getServer().broadcastMessage(ChatColor.BLUE + player.getName() + " flys!");
+			player.sendMessage(ChatColor.BLUE + player.getName() + " flys!");
 			player.setAllowFlight(true);
 			task1 = getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable(){
 				@Override
 				public void run() {
 					int explvl = player.getLevel();
-;
+					int time = player.getLevel();
 					if (explvl >= 1){
                           explvl = explvl -1;
+                          time = time *30;
                           player.setLevel(explvl);
+                          player.sendMessage(ChatColor.BLUE + "You have " + time + " seconds left");
 	} else {
-				 Bukkit.getServer().broadcastMessage(ChatColor.BLUE + player.getName() + " not enough XP!");
+				 player.sendMessage(ChatColor.BLUE + "You don't have enough XP!");
 				 player.setAllowFlight(false);
 				 player.setFlying(false);
 				 Bukkit.getServer().getScheduler().cancelTask(task1);
@@ -39,7 +40,7 @@ public class iFly extends JavaPlugin {
 			}, 0L, 400L); 
 			}
 			else {
-				 Bukkit.getServer().broadcastMessage(ChatColor.BLUE + player.getName() + " not enough XP!");
+				 player.sendMessage(ChatColor.BLUE + " You don't have enough XP!");
 				 player.setAllowFlight(false);
 				 player.setFlying(false);
 				}
