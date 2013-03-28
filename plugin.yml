@@ -1,0 +1,9 @@
+name: iFly
+main: com.elysiummc.iFly.iFly
+version: 0.1
+commands:
+   ifly:
+      description: Take to the skies!
+      usage: /<command>
+      permission: ifly.basic
+      permission-message: Sorry, not allowed
